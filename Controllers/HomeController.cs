@@ -35,15 +35,17 @@ namespace _413assignment3.Controllers
 
         public IActionResult ViewMovies()
         {
-            return View(SubmittedMovies.Movies);
+            return View(SubmittedMovies.FilteredMovies);
         }
 
         [HttpPost]
         public IActionResult EnterMovie(Movie movie)
         {
             Debug.WriteLine(movie.Category);
-            
-            SubmittedMovies.AddMovie(movie);
+            if (ModelState.IsValid)
+            {
+                SubmittedMovies.AddMovie(movie);
+            }
             return View();
         }
 

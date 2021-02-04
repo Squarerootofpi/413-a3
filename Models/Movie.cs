@@ -13,7 +13,7 @@ namespace _413assignment3.Models
 
         [Required(AllowEmptyStrings = false)]
         //[Compare("Independence Day", ErrorMessage = "The movie Independence Day is not allowed.")]
-        [RegularExpression("^(!Independence Day).*")]
+        //[RegularExpression("^(!Independence Day).*")]
         public string Title { get; set; }
 
         [Required(AllowEmptyStrings = false)]
@@ -29,6 +29,7 @@ namespace _413assignment3.Models
 
         public string LentTo { get; set; }
 
+        [MaxLength(25,ErrorMessage = "The max length is 25 here bozo")]
         public string Notes { get; set; }
 
     }
