@@ -28,6 +28,31 @@ namespace _413assignment3.Controllers
             return View();
         }
 
+        public IActionResult MyPodcasts()
+        {
+            return View();
+        }
+
+        public IActionResult ViewMovies()
+        {
+            return View(SubmittedMovies.Movies);
+        }
+
+        [HttpPost]
+        public IActionResult EnterMovie(Movie movie)
+        {
+            Debug.WriteLine(movie.Category);
+            
+            SubmittedMovies.AddMovie(movie);
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult EnterMovie()
+        {
+            return View();
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

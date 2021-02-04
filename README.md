@@ -18,51 +18,41 @@ https://docs.google.com/spreadsheets/d/1YXv5DQwyENjIlmzUx1ySZjprGUtbmxrxStSwELMS
 
 qf8/edit?usp=sharing
 
-He needs a web app to be able to more easily enter and keep track of his movie collection as it
-
+He needs a web app to be able to more easily enter and keep track of his movie collection as it 
 grows. Create a web app that has:
 
 • A shared navigation menu to each page on the site
 
 • A home page containing the title “The Joel Hilton Film Collection” and the only image I
-
 could find of him on the Internet:
 
 o https://byu.box.com/s/p1d6uozvh4b8a5knyfo1dwzhhrp4mhd7
 
 • A separate “My Podcasts” page with a link to the Baconsale site: https://baconsale.com/
 
-• A separate page with a form to enter the movies. The new movie form should allow to enter
-
-all the information currently contained in the spreadsheet linked above. Note:
+• A separate page with a form to enter the movies. The new movie form should allow to enter all the 
+information currently contained in the spreadsheet linked above. Note:
 
 o For the Rating field, use a dropdown menu (G, PG, PG-13, R).
 
 o For the Edited field, we want that to be a yes/no (true/false) option.
 
 o The “Edited”, “Lent To”, and “Notes” fields are optional. All other fields must be
-
 entered.
 
 o Notes should be limited to 25 characters.
 
-• A separate page that lists out all the movies that have been entered so far (just while the app
-
+• A separate page that lists out all the movies that have been entered so far (just while the app 
 is running – we have not learned yet how to connect it to a database for long-term storage.)
 
 o NOTE: Exclude the movie “Independence Day” from ever displaying in the list,
-
-because Joel once argued in a 4
-
-th of July podcast that “Independence Day” beats
+because Joel once argued in a 4th 
+of July podcast that “Independence Day” beats
 
 “Rocky IV” as the “Most American Movie Ever Made” which is obviously not true!
 
-(#notcoveredinthevideos… but check out the section “DISPLAYING THE
-
+(#notcoveredinthevideos… but check out the section “DISPLAYING THE 
 RESPONSES” in Chapter 3 of the Freeman textbook as a great place to start.)
 
 Submit a .zip file of your project or a link to the GitHub repository containing your project
-
-via Learning Suite.
 

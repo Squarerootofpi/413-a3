@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewData["Title"] = "Movie List";
+}
+
+@model IEnumerable<_413assignment3.Models.Movie>
+<h1>@ViewBag.Title</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Category</th>
+            <th>Title</th>
+            <th>Year</th>
+            <th>Director</th>
+            <th>Rating</th>
+            <th>Edited</th>
+            <th>LentTo</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (_413assignment3.Models.Movie m in Model)
+        {
+            <tr>
+                <td>@m.Category</td>
+                <td>@m.Title</td>
+                <td>@m.Year</td>
+                <td>@m.Director</td>
+                <td>@m.Rating</td>
+                <td>@m.Edited</td>
+                <td>@m.LentTo</td>
+                <td>@m.Notes</td>
+            </tr>
+            }
+    </tbody>
+</table>
