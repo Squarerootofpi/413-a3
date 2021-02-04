@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace _413assignment3.Models
 {
+    /// <summary>
+    /// This model represents a movie, and what makes a valid movie
+    /// </summary>
     public class Movie
     {
         [Required(AllowEmptyStrings = false)]

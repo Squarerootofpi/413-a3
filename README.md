@@ -1,4 +1,8 @@
-ur (pretend) client this week is Joel Hilton (my brother, who is 2 years, 2 months, and 2 days
+# Assignment 3
+
+### Note, I only put comments in where I felt they actually helped improve documentation in the program. I didin't put them there if they didn't feel necessary.
+
+Your (pretend) client this week is Joel Hilton (my brother, who is 2 years, 2 months, and 2 days
 
 younger than myself), who is very into movies. So into movies, in fact, that he minored in Film
 

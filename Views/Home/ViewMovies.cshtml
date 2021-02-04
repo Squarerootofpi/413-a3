@@ -21,6 +21,7 @@
     </thead>
 
     <tbody>
+        @*This model passed in is the Models.SubmittedMovies.FilteredMovies object*@
         @foreach (_413assignment3.Models.Movie m in Model)
         {
             <tr>
@@ -33,6 +34,6 @@
                 <td>@m.LentTo</td>
                 <td>@m.Notes</td>
             </tr>
-            }
+         }
     </tbody>
 </table>
