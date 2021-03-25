@@ -22,8 +22,8 @@ reated by https://www.toptal.com/developers/gitignore/api/aspnetcore
 
 *.sln.docstates
 
-**/*.sqlite/
-**/*.sqlite3/
+*.sqlite/
+*.sqlite3/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 
