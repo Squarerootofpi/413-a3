@@ -3,10 +3,10 @@
     ViewData["Title"] = "Movie List";
 }
 
-@model IEnumerable<_413assignment3.Models.Movie>
+@model MovieListViewModel
 <h1>@ViewBag.Title</h1>
 
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>Category</th>
@@ -17,12 +17,13 @@
             <th>Edited</th>
             <th>LentTo</th>
             <th>Notes</th>
+            <th></th>
         </tr>
     </thead>
 
     <tbody>
         @*This model passed in is the Models.SubmittedMovies.FilteredMovies object*@
-        @foreach (_413assignment3.Models.Movie m in Model)
+        @foreach (_413assignment3.Models.Movie m in Model.Movies)
         {
             <tr>
                 <td>@m.Category</td>
@@ -33,7 +34,14 @@
                 <td>@m.Edited</td>
                 <td>@m.LentTo</td>
                 <td>@m.Notes</td>
+                <td> 
+                    <form asp-action="ModifyMovie" method="get">
+                        <input id="id" name="movieid" value="@m.MovieId" hidden/>
+                        <button type="submit">MODIFY/DELETE</button>
+                    </form>
+                </td>
             </tr>
          }
     </tbody>
 </table>
+

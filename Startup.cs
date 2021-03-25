@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using _413assignment3.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace _413assignment3
 {
@@ -24,6 +26,14 @@ namespace _413assignment3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<MovieDbContext>(options =>
+            {
+                options.UseSqlite(Configuration["ConnectionStrings:MovieConnection"]);
+            });
+
+            services.AddScoped<IMovieRepository, EFMovieRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +62,8 @@ namespace _413assignment3
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            SeedDatabase.EnsurePopulated(app);
         }
     }
 }

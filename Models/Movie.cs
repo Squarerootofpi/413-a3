@@ -11,6 +11,9 @@ namespace _413assignment3.Models
     /// </summary>
     public class Movie
     {
+        [Key]
+        [Required]
+        public int MovieId { get; set; }
         [Required(AllowEmptyStrings = false)]
         public string Category { get; set; }
 

@@ -1,4 +1,5 @@
 ﻿using _413assignment3.Models;
+using _413assignment3.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -13,9 +14,12 @@ namespace _413assignment3.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private IMovieRepository _repository;
+
+        public HomeController(ILogger<HomeController> logger, IMovieRepository repository)
         {
             _logger = logger;
+            _repository = repository;
         }
 
         public IActionResult Index()
@@ -35,7 +39,12 @@ namespace _413assignment3.Controllers
 
         public IActionResult ViewMovies()
         {
-            return View(SubmittedMovies.FilteredMovies);
+            //return View(SubmittedMovies.FilteredMovies);
+            return View(new MovieListViewModel
+            {
+                Movies = _repository.Movies
+            }
+            );
         }
 
         [HttpPost]
@@ -44,7 +53,7 @@ namespace _413assignment3.Controllers
             Debug.WriteLine(movie.Category);
             if (ModelState.IsValid)
             {
-                SubmittedMovies.AddMovie(movie);
+               _repository.AddMovie(movie);
             }
             return View();
         }
@@ -53,6 +62,62 @@ namespace _413assignment3.Controllers
         public IActionResult EnterMovie()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult ModifyMovie(Movie movie)
+        {
+            Debug.Print("yo");
+            int movieid = movie.MovieId;
+            if (movieid == null)
+            {
+                return View("Index");
+            }
+            
+            _repository.UpdateMovie(movie);
+
+            return View("ViewMovies", new MovieListViewModel
+            {
+                Movies = _repository.Movies
+            }
+            );
+        }
+
+        [HttpGet]
+        public IActionResult ModifyMovie(string movieid)
+        {
+            if (movieid == null)
+            {
+                return View("Error");
+            }
+            int theid = int.Parse(movieid);
+            Movie m = _repository.Movies
+                           .Where(m => m.MovieId == theid)
+                           .FirstOrDefault<Movie>();
+
+            return View(new ModifyMovieViewModel { Movie = m });
+        }
+
+        [HttpPost]
+        public IActionResult DeleteMovie(string movieid)
+        {
+            if (movieid == null)
+            {
+                return View("Error");
+            }
+
+            int theid = int.Parse(movieid);
+            Movie movie = _repository.Movies
+                           .Where(m => m.MovieId == theid)
+                           .FirstOrDefault<Movie>();
+
+            _repository.DeleteMovie(movie);
+
+            return View("ViewMovies", new MovieListViewModel
+            {
+                Movies = _repository.Movies
+            }
+            );
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
